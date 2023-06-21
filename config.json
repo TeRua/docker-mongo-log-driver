@@ -1,0 +1,42 @@
+{
+    "description": "Docker log driver to store logs into Mongo DB",
+    "documentation": "-",
+    "entrypoint": [
+        "/usr/bin/mongo-log-driver"
+    ],
+    "network": {
+        "type": "host"
+    },
+    "interface": {
+        "types": [
+            "docker.logdriver/1.0"
+        ],
+        "socket": "log.sock"
+    },
+    "env": [
+        {
+            "name": "LOG_MONGO_SERVER",
+            "description": "Mongo DB server URL",
+            "value": "mongodb://0.0.0.0:27017",
+            "settable": [
+                "value"
+            ]
+        },
+        {
+            "name": "LOG_MONGO_DBNAME",
+            "description": "Mongo DB name",
+            "value": "docker-logs",
+            "settable": [
+                "value"
+            ]
+        },
+        {
+            "name": "LOG_MONGO_COLLECTION",
+            "description": "Mongo DB log collection name",
+            "value": "logs",
+            "settable": [
+                "value"
+            ]
+        }
+    ]
+}
