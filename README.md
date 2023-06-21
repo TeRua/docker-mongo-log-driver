@@ -29,6 +29,8 @@ Build on Windows host is not supported.
 
 `$ ./build.sh`
 
+* in case you are stuck on plugin creation, try `sudo ./build.sh` instead.
+
 ## Pull from DockerHub
 
 To pull plugin from DockerHub

@@ -17,10 +17,11 @@ docker export $ID | tar -x -C rootfs/
 echo "Cleaning up build assets..."
 docker rm -vf plugin-build
 
+echo "Cleaning up previous plugins..."
+docker plugin disable ${PLUGIN_NAME}:${PLUGIN_TAG} || true
+docker plugin rm ${PLUGIN_NAME}:${PLUGIN_TAG} || true
+
 echo "Creating docker plugin..."
-docker plugin disable ${PLUGIN_NAME} || true
-docker plugin rm ${PLUGIN_NAME} || true
 docker plugin create ${PLUGIN_NAME}:${PLUGIN_TAG} .
-docker plugin create ${PLUGIN_NAME}:latest .
-docker plugin enable ${PLUGIN_NAME}
+docker plugin enable ${PLUGIN_NAME}:${PLUGIN_TAG}
 
