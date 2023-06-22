@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PLUGIN_NAME=terua05/mongo-log-driver
-PLUGIN_TAG=0.0.2
+PLUGIN_TAG=0.0.3
 
 echo "Cleaning up before start build..."
 sudo rm -rf rootfs

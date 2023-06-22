@@ -11,7 +11,7 @@ This repository is Docker Log Driver to store logs into mongoDB directly not thr
 
 - Docker container logs store into MongoDB.
 - Set MongoDB configs by environmental variables.
-  - Mongo DB URI
+  - Mongo DB URL
   - Database Name
   - Collection name (global)
 - Provide docker composer configuration
@@ -88,7 +88,7 @@ networks:
 
 ### Environmental Variable
 
-1. LOG_MONGO_SERVER : MongoDB server address. following mongoDB documentation. (Default: mongodb://localhost:27017)
+1. LOG_MONGO_URL : MongoDB server address. following mongoDB documentation. (Default: mongodb://localhost:27017)
    - For MongoDB Atlas (Cloud) : `mongodb+srv://[username:password@]host1[,...hostN][/[defaultauthdb][?options]]`
      - `mongodb+srv` protocol will return error if port is described in the URI
    - For Self-hosted : `mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]`

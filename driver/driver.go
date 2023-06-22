@@ -183,7 +183,6 @@ func consumeLog(lp *LogPair) {
 func buildMongo(logCtx *logger.Info, extra map[string]string) (*mongo.Client, *mongo.Collection, error) {
 	println("Build Mongo Called!!")
 	// Build mongo connection
-	println(extra["LOG_MONGO_SERVER"]) // Get ENV from container (Per Service)
 
 	// Get config
 	useOpt := readWithDefault(logCtx.Config, "use-opt", "false")
@@ -195,7 +194,7 @@ func buildMongo(logCtx *logger.Info, extra map[string]string) (*mongo.Client, *m
 	var collection string
 	println(useOpt)
 	if useOpt == "false" {
-		server = os.Getenv("LOG_MONGO_SERVER") // Get ENV from plugin set (GLOBAL)
+		server = os.Getenv("LOG_MONGO_URL") // Get ENV from plugin set (GLOBAL)
 		test = os.Getenv("TEST")
 		dbname = os.Getenv("LOG_MONGO_DBNAME")
 		collection = os.Getenv("LOG_MONGO_COLLECTION")
