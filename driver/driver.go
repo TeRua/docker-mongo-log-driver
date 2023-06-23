@@ -195,12 +195,10 @@ func buildMongo(logCtx *logger.Info, extra map[string]string) (*mongo.Client, *m
 	println(useOpt)
 	if useOpt == "false" {
 		server = os.Getenv("LOG_MONGO_URL") // Get ENV from plugin set (GLOBAL)
-		test = os.Getenv("TEST")
 		dbname = os.Getenv("LOG_MONGO_DBNAME")
 		collection = os.Getenv("LOG_MONGO_COLLECTION")
 	} else {
-		server = readWithDefault(logCtx.Config, "server", "mongodb://localhost:27017")
-		test = readWithDefault(logCtx.Config, "test", "docker-test")
+		server = readWithDefault(logCtx.Config, "server", "mongodb://0.0.0.0:27017")
 		dbname = readWithDefault(logCtx.Config, "dbname", "docker-logs")
 		collection = readWithDefault(logCtx.Config, "collection", "logs")
 	}

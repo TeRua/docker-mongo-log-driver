@@ -35,7 +35,7 @@ Build on Windows host is not supported.
 
 To pull plugin from DockerHub
 
-`$ docker plugin pull terua05/mongo-log-driver:latest`
+`$ docker plugin pull terua05/mongo-log-driver:0.0.3`
 
 ## Plugin's log
 
@@ -48,7 +48,7 @@ To pull plugin from DockerHub
 ### With Docker
 
 - Use `--log-driver` option in Docker CLI
-  - `docker run -d --log-driver mongo-log-driver:0.0.1 --log-opt use-opt=true --log-opt server="${SERVER_URI}" --log-opt dbname="${DB_NAME}" --log-opt collection="${COLLECTION_NAME}" terua05/mongo-log-driver `
+  - `docker run -d --log-driver mongo-log-driver:0.0.3 --log-opt use-opt=true --log-opt server="${SERVER_URI}" --log-opt dbname="${DB_NAME}" --log-opt collection="${COLLECTION_NAME}" terua05/mongo-log-driver `
 
 ### Docker Composer
 
@@ -68,12 +68,6 @@ services:
           server: "mongodb://0.0.0.0:27017"
 	  dbname: "test-db"
 	  collection: "collection"
-    networks:
-      - log-test
-
-networks:
-  log-test:
-    external: true
 ```
 
 ### How to set Environmental Variable
